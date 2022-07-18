@@ -28,7 +28,7 @@ CREATE TABLE doctors_patients(
 CREATE TABLE patients_diseases(
     id SERIAL PRIMARY KEY,
     patient_id INTEGER,
-    disease TEXT
+    disease_id INTEGER
 );
 
 INSERT INTO doctors 
@@ -50,10 +50,10 @@ VALUES
 INSERT INTO diseases
     (name, severity)
 VALUES
-    ('Chickenpox', Mid),
-    ('Influenza', Low),
-    ('Measles', Mid),
-    ('Pneumonia', High);
+    ('Chickenpox', 'Mid'),
+    ('Influenza', 'Low'),
+    ('Measles', 'Mid'),
+    ('Pneumonia', 'High');
 
 INSERT INTO doctors_patients
     (doctor_id, patient_id)
@@ -68,15 +68,28 @@ VALUES
     (4, 1);
 
 INSERT INTO patients_diseases
-    (patient_id, disease)
+    (patient_id, disease_id)
 VALUES
-    (1, 'Pneumonia'),
-    (1, 'Chickenpox'),
-    (2, 'Measles'),
-    (3, 'Chinkenpox'),
-    (3, 'Influenza'),
-    (4, 'Measles'),
-    (4, 'Influenza');
+    (1, 4),
+    (1, 1),
+    (2, 3),
+    (3, 1),
+    (3, 2),
+    (4, 3),
+    (4, 2);
+
+SELECT * FROM doctors
+    JOIN doctors_patients
+    ON doctors.id = doctors_patients.doctor_id
+    JOIN patients
+    ON doctors_patients.patient_id = patients.id;
+
+SELECT * FROM diseases
+    JOIN patients_diseases
+    ON diseases.id = patients_diseases.disease_id
+    JOIN patients
+    ON patients_diseases.patient_id = patients.id;
+
 
 
 
