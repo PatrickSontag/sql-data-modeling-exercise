@@ -19,12 +19,12 @@ CREATE TABLE songs
 CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  song_id INTEGER NOT NULL
+  song_id INTEGER REFERENCES songs
 );
 CREATE TABLE producers (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  song_id INTEGER NOT NULL
+  song_id INTEGER REFERENCES songs
 );
 
 INSERT INTO songs

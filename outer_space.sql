@@ -19,7 +19,7 @@ CREATE TABLE planets
 CREATE TABLE moons (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  planet INTEGER NOT NULL
+  planet INTEGER REFERENCES planets
 );
 
 INSERT INTO planets
