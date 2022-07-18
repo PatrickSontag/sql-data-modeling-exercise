@@ -83,10 +83,8 @@ SELECT * FROM users
     JOIN posts
     ON users.id = posts.user_id
     JOIN regions
-    ON regions.id = posts.region_id;
-
--- SELECT * FROM diseases
---     JOIN patients_diseases
---     ON diseases.id = patients_diseases.disease_id
---     JOIN patients
---     ON patients_diseases.patient_id = patients.id;
+    ON regions.id = posts.region_id
+    JOIN posts_categories
+    ON posts_categories.post_id = posts.id
+    JOIN categories
+    ON posts_categories.category_id = categories.id;
