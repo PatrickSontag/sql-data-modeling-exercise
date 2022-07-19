@@ -19,12 +19,12 @@ CREATE TABLE songs
 CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  song_id INTEGER REFERENCES songs
+  song_id INTEGER REFERENCES songs(id)
 );
 CREATE TABLE producers (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  song_id INTEGER REFERENCES songs
+  song_id INTEGER REFERENCES songs(id)
 );
 
 INSERT INTO songs
@@ -81,4 +81,4 @@ SELECT songs.title, artists.name AS artist_name, songs.album, producers.name AS 
   JOIN artists
   ON songs.id = artists.song_id
   JOIN producers
-  ON songs.id = producers.song_id
+  ON songs.id = producers.song_id;

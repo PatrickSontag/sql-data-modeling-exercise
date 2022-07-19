@@ -17,9 +17,7 @@ CREATE TABLE passengers
 CREATE TABLE tickets
 (
   id SERIAL PRIMARY KEY,
-  passenger_id INTEGER NOT NULL,
-  -- first_name TEXT NOT NULL,
-  -- last_name TEXT NOT NULL,
+  passenger_id INTEGER REFERENCES passengers(id),
   seat TEXT NOT NULL,
   departure TIMESTAMP NOT NULL,
   arrival TIMESTAMP NOT NULL,

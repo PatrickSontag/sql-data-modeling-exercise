@@ -91,5 +91,5 @@ SELECT * FROM teams
     JOIN matches
     ON matches.home_team = teams.name
     JOIN referees
-    ON referees.id = matches.referee
+    ON referees.id = matches.referee;
 

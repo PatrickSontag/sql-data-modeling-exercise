@@ -19,7 +19,7 @@ CREATE TABLE planets
 CREATE TABLE moons (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  planet INTEGER REFERENCES planets
+  planet INTEGER REFERENCES planets(id)
 );
 
 INSERT INTO planets
@@ -56,4 +56,4 @@ VALUES
 
 SELECT planets.name, moons.name FROM planets
     JOIN moons
-    ON moons.planet = planets.id
+    ON moons.planet = planets.id;
